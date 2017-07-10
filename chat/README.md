@@ -5,6 +5,7 @@
 2.
 clientList.splice(clientList.indexOf(cleanup[i]), 1)
 IE9以前的版本都不支持此方法
+解决方法：
 if(!Array.indexOf){
   	Array.prototype.indexOf = function(el){
 	 	for (var i=0,n=this.length; i<n; i++){

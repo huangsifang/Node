@@ -15,6 +15,7 @@ chatServer.on('connection', function(client) {
 
 	client.on('end', function() {
 		console.log(client.name + ' quit');
+		//clientList.splice(clientList.indexOf(client), 1);
 		for (var i=0,n=clientList.length; i<n; i++) {
 		 	if (clientList[i] === client) {
 			  	clientList.splice(i, 1);
@@ -41,6 +42,7 @@ function broadcast(message, client) {
 		}
 	}
 	for(i=0; i<cleanup.length; i+=1) {
+		//clientList.splice(clientList.indexOf(cleanup[i]), 1);
 		for (var i=0,n=clientList.length; i<n; i++) {
 		 	if (clientList[i] === cleanup[i]) {
 			  	clientList.splice(i, 1);
