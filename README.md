@@ -36,3 +36,25 @@ node.js的express模块已经更新了，新版本不支持旧版本的createSer
 解决方法：
 将 var app = express.createServer()
 替换成 var app = require('express')()
+
+
+1.
+Node.js模块分为两类：
+.原生（核心）模块，在Node.js源代码编译的时候编译了二进制执行文件，加载速度最快
+.文件模块，动态加载
+Node.js对原生模块和文件模块都进行了缓存
+
+文件模块分为三类：
+.js 通过fs模块同步读取js文件并编译执行
+.node 通过C/C++进行编译的Addon。通过dlopen方法进行加载
+.json 读取文件，调用JSON。parse解析加载
+
+Node.js在编译js文件过程中对js文件内容进行头尾包装
+(function (exports, require, module, __filename, __dirname)) {
+	var circle = require('./circle.js');
+	console.log(circle.area(4));
+});
+所以require方法没有定义却能使用
+__filename, __dirname在查找文件路径的过程中分析得到后传入
+module是这个模块对象自身
+exports是在module的构造函数中初始化的一个空对象（{}，而不是null）
