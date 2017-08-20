@@ -5,7 +5,7 @@ module.exports={
             if  (err)  {
               console.log(err);
             }else{
-              console.log(data.toString());
+              // console.log(data.toString());
               recall(data);
             }
         });
