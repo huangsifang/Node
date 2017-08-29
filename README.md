@@ -58,3 +58,20 @@ Node.js在编译js文件过程中对js文件内容进行头尾包装
 __filename, __dirname在查找文件路径的过程中分析得到后传入
 module是这个模块对象自身
 exports是在module的构造函数中初始化的一个空对象（{}，而不是null）
+
+
+
+
+
+
+APIServer(MySQL)
+1.安装express: 
+npm install express
+2.创建项目模板，view中默认为jade文件
+express 项目名
+
+BlogSite
+1.安装express: 
+npm install express
+2.创建项目模板，使用hbs文件
+express --hbs 项目名
